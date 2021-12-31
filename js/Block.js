@@ -50,14 +50,14 @@ const quit = () =>
     const playGame = () =>
     {
         removeStart(body);
+        gameOver();
         dom.Event.removeEvent(main, "click", playGame);
         dom.Event.listen(main, "mousemove", function(e){movePaddleMouse(e);});
         dom.Event.listen(body, "keydown", function(event){movePaddleKeys(event);});
         brickPopulate(init);
         message.innerHTML = "Use the mouse or left and right arrow keys to move the paddle and clear all the bricks.";
         const ballChange = setInterval(function(){ballMove(ballChange);}, 20);
-        gameOver();
-    };
+     };
 
     const startGame = (body) =>
     {
