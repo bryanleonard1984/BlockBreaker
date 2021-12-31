@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Block Buster</title>
+        <meta charset="utf-8" />
+        <link href="css/Block.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1>Block Buster</h1>
+        <main>
+            <div id="activePlay">
+                <div id="brick1" class="r4brick"></div>
+                <div id="brick2" class="r4brick"></div>
+                <div id="brick3" class="r4brick"></div>
+                <div id="brick4" class="r4brick"></div>
+                <div id="brick5" class="r4brick"></div>
+                <div id="brick6" class="r3brick"></div>
+                <div id="brick7" class="r3brick"></div>
+                <div id="brick8" class="r3brick"></div>
+                <div id="brick9" class="r3brick"></div>
+                <div id="brick10" class="r3brick"></div>
+                <div id="brick11" class="r2brick"></div>
+                <div id="brick12" class="r2brick"></div>
+                <div id="brick13" class="r2brick"></div>
+                <div id="brick14" class="r2brick"></div>
+                <div id="brick15" class="r2brick"></div>
+                <div id="brick16" class="r1brick"></div>
+                <div id="brick17" class="r1brick"></div>
+                <div id="brick18" class="r1brick"></div>
+                <div id="brick19" class="r1brick"></div>
+                <div id="brick20" class="r1brick"></div>
+                <div id="ball"></div>
+                <div id="paddle"></div>
+            </div>
+        </main>
+        <div id="scorePanel">
+            <h3>Lives</h3>
+            <h4>3</h4>
+            <h3>Score</h3>
+            <h4>0</h4>
+            <p>Start the game by pressing Enter or left clicking the mouse.</p>
+            <form id="buttons">
+                <input id="btnReplay" class="button" type="button" value="Replay" />
+                <br/>
+                <input id="btnQuit" class="button" type="button" value="Quit" />
+            </form>
+            <script type="module" src="./js/Block.js"></script>
+        </div>
+    </body>
+</html>

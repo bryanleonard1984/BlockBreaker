@@ -1,0 +1,232 @@
+body{
+    background-color: hsl(0, 0%, 25%);
+}
+
+h1{
+    width: 500px;
+    text-align: center;
+}
+
+h3{
+    text-align:center;
+}
+
+h4{
+    text-align:center;
+    border-bottom: 1px solid hsl(0, 50%, 0%);
+}
+
+p{
+    font-family: Arial;
+    font-size: 1.0rem;
+    font-weight: bolder;
+    width: 120px;
+    margin: 50px 35px;
+}
+
+main{
+    border: 5px solid hsl(0, 50%, 0%);
+    background-color: hsl(0, 0%, 50%);
+    height: 500px;
+    width: 300px;
+    position:fixed;
+    left: 3px;
+    top: 70px;
+}
+
+form{
+    position: fixed;
+    left: 313px;
+    top: 475px;
+    border-top: 3px solid hsl(0, 50%, 0%);
+}
+
+/*Class Styles*/
+.button{
+    width: 100px;
+    height: 30px;
+    font-family: Arial;
+    font-weight: bolder;
+    font-size: 1.0rem;
+    margin: 10px 45px;
+    
+}
+
+.r4brick{
+    height: 24px;
+    width: 54px;
+    background-color: hsl(0, 70%, 45%);
+    border: 3px solid hsl(0, 85%, 30%);
+}
+
+.r3brick{
+    height: 24px;
+    width: 54px;
+    background-color: hsl(45, 70%, 45%);
+    border: 3px solid hsl(45, 85%, 30%);
+}
+
+.r2brick{
+    height: 24px;
+    width: 54px;
+    background-color: hsl(135, 70%, 45%);
+    border: 3px solid hsl(135, 85%, 30%);
+}
+
+.r1brick{
+    height: 24px;
+    width: 54px;
+    background-color: hsl(225, 70%, 45%);
+    border: 3px solid hsl(225, 85%, 30%);
+}
+/*id styles*/
+#scorePanel{
+    border: 5px solid hsl(0, 50%, 0%);
+    background-color: hsl(0, 0%, 50%);
+    height: 500px;
+    width: 190px;
+    position: fixed;
+    left: 308px;
+    top: 70px;
+}
+
+#ball{
+    height: 13px;
+    width: 13px;
+    border: 1px solid hsl(0, 50%, 0%);
+    background-color: hsl(0, 50%, 0%);
+    position: fixed;
+    top: 510px;
+    left: 147px;
+}
+
+#paddle{
+    height: 13px;
+    width: 68px;
+    border: 1px solid hsl(0, 0%, 75%);
+    background-color: hsl(0, 0%, 85%);
+    position: fixed;
+    top: 535px;
+    left: 119px;
+}
+
+/*Row 4 bricks*/
+
+#brick1{
+    position:fixed;
+    top: 175px;
+    left: 8px;
+}
+#brick2{
+    position:fixed;
+    top: 175px;
+    left: 68px;
+}
+
+#brick3{
+    position:fixed;
+    top: 175px;
+    left: 128px;
+}
+
+#brick4{
+    position:fixed;
+    top: 175px;
+    left: 188px;
+}
+
+#brick5{
+    position:fixed;
+    top: 175px;
+    left: 248px;
+}
+
+/*Row 3 bricks*/
+#brick6{
+    position:fixed;
+    top: 145px;
+    left: 8px;
+}
+#brick7{
+    position:fixed;
+    top: 145px;
+    left: 68px;
+}
+
+#brick8{
+    position:fixed;
+    top: 145px;
+    left: 128px;
+}
+
+#brick9{
+    position:fixed;
+    top: 145px;
+    left: 188px;
+}
+
+#brick10{
+    position:fixed;
+    top: 145px;
+    left: 248px;
+}
+
+/*Row 2 bricks*/
+#brick11{
+    position:fixed;
+    top: 115px;
+    left: 8px;
+}
+#brick12{
+    position:fixed;
+    top: 115px;
+    left: 68px;
+}
+
+#brick13{
+    position:fixed;
+    top: 115px;
+    left: 128px;
+}
+
+#brick14{
+    position:fixed;
+    top: 115px;
+    left: 188px;
+}
+
+#brick15{
+    position:fixed;
+    top: 115px;
+    left: 248px;
+}
+
+/*Row 1 bricks*/
+#brick16{
+    position:fixed;
+    top: 85px;
+    left: 8px;
+}
+#brick17{
+    position:fixed;
+    top: 85px;
+    left: 68px;
+}
+
+#brick18{
+    position:fixed;
+    top: 85px;
+    left: 128px;
+}
+
+#brick19{
+    position:fixed;
+    top: 85px;
+    left: 188px;
+}
+
+#brick20{
+    position:fixed;
+    top: 85px;
+    left: 248px;
+}
