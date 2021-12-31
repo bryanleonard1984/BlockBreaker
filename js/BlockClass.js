@@ -162,19 +162,23 @@ export class brick {
         return this.bottom;
     }
 
-    onHit(){
-        if(this != undefined){
-            this.hitPoints = this.hitPoints - 1;
-            if(this.hitPoints === 0){
-                this.obj.style.display = "none";
-            }else{
-                this.obj.style.backgroundColor = this.color[this.hitPoints][0];
-                this.obj.style.borderColor = this.color[this.hitPoints][1];
-            }
+    willBreak(){
+        if(this.hitPoints === 1){
+            return true;
+        } else if(this.hitPoints > 1){
+            return false;
         }
-        
-        
-        
+    }
+
+    onHit(){        
+        this.hitPoints = this.hitPoints - 1;
+        this.obj.style.backgroundColor = this.color[this.hitPoints][0];
+        this.obj.style.borderColor = this.color[this.hitPoints][1];
+    }
+
+    onDestroy(){
+        this.hitPoints = this.hitPoints - 1;
+        this.obj.style.display = "none";
     }
 }
 

@@ -70,11 +70,11 @@ const quit = () =>
         });
     };
 
-    const brickPopulate = (brick, init) =>
+    const brickPopulate = (init) =>
     {
         if(init){
-            for(let i = 0; i < 21; i++){
-                brick = new clib.brick(i);
+            for(let i = 1; i < 21; i++){
+                const brick = new clib.brick(i);
                 brick.initialize();
                 bricks.push(brick);
             }
@@ -132,6 +132,12 @@ const quit = () =>
         let score = parseInt(dom.getEl.gETN("h4", 1).innerHTML);
         score = score + 1;
         dom.getEl.gETN("h4", 1).innerHTML = score;
+        const victory = () => 
+        {
+            score = score * (1 + (lives/10));
+            dom.getEl.gETN("h4", 1).innerHTML = score;
+            message.innerHTML("Congratulations, you broke all of the bricks! Click Replay to play again.");
+        }
     };
 
     const ballMove = (ballChange) =>
@@ -146,7 +152,13 @@ const quit = () =>
     {
         onCollision(gameBorder, ballChange);
         onCollision(paddle);
-        onBrickCollide(bricks);
+        for(let i = 0; i < bricks.length; i++){
+            onBrickCollide(bricks[i], i);
+            if(bricks.length === 0){
+                ScoreUpdate.victory();
+                clearInterval(ballChange);
+            }
+        }
     };
 
     const onCollision = (target, ballChange) =>
@@ -184,14 +196,18 @@ const quit = () =>
         }
     };
 
-    const onBrickCollide = (brick) =>
+    const onBrickCollide = (brick, i) =>
     {
         if(onCollision(brick)){
-            brick.onHit();
-            if(brick.onHit() === undefined){
-                brick = null;
+            if(brick.willBreak()){
+                util.log(brick);
+                brick.onDestroy();
+                util.log(brick);
+                bricks.splice(i, 1);
+                ScoreUpdate();
+            } else {
+                brick.onHit();
+                ScoreUpdate();
             }
-            ScoreUpdate();
         }
-        
     };
