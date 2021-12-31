@@ -1,6 +1,5 @@
 import * as dom from "./DomManipulation.js";
 import * as clib from "./BlockClass.js";
-import * as util from "./utils.js";
 
 document.addEventListener("readystatechange", (event) =>{
     if(event.target.readyState === "complete"){
@@ -132,12 +131,14 @@ const quit = () =>
         let score = parseInt(dom.getEl.gETN("h4", 1).innerHTML);
         score = score + 1;
         dom.getEl.gETN("h4", 1).innerHTML = score;
-        const victory = () => 
-        {
-            score = score * (1 + (lives/10));
-            dom.getEl.gETN("h4", 1).innerHTML = score;
-            message.innerHTML("Congratulations, you broke all of the bricks! Click Replay to play again.");
-        }
+    };
+
+    const victory = () => 
+    {
+        let score = parseInt(dom.getEl.gETN("h4", 1).innerHTML);
+        score = score * (1 + (lives/10));
+        dom.getEl.gETN("h4", 1).innerHTML = score;
+        message.innerHTML = ("Congratulations, you broke all of the bricks! Click Replay to play again.");
     };
 
     const ballMove = (ballChange) =>
@@ -155,7 +156,7 @@ const quit = () =>
         for(let i = 0; i < bricks.length; i++){
             onBrickCollide(bricks[i], i);
             if(bricks.length === 0){
-                ScoreUpdate.victory();
+                victory();
                 clearInterval(ballChange);
             }
         }
@@ -168,11 +169,12 @@ const quit = () =>
                 if(ball.getTop() < target.getBottom() && ball.getBottom() > target.getTop()){
                     ball.setDirY(-1 * ball.getDirY());
                     return true;
-                } else if((ball.getTop() < target.getBottom() && ball.getBottom() > target.getTop())){
-                    if(ball.getRight() > target.getLeft() && ball.getLeft() < target.getRight()){
-                        ball.setDirX(-1 * ball.getDirX());
-                        return true;
-                    }
+                }
+            } else if((ball.getTop() < target.getBottom() && ball.getBottom() > target.getTop()))
+            {
+                if(ball.getRight() > target.getLeft() && ball.getLeft() < target.getRight()){
+                    ball.setDirX(-1 * ball.getDirX());
+                    return true;
                 }
             }
         } else {
@@ -200,9 +202,7 @@ const quit = () =>
     {
         if(onCollision(brick)){
             if(brick.willBreak()){
-                util.log(brick);
                 brick.onDestroy();
-                util.log(brick);
                 bricks.splice(i, 1);
                 ScoreUpdate();
             } else {
