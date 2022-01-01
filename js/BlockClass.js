@@ -1,5 +1,4 @@
 export class ball {
-    //obj = document.getElementById("ball");
     width = 15;
     height = 15;
     constructor (){
@@ -62,6 +61,12 @@ export class ball {
         this.obj.style.top = `${this.top}px`;
         this.obj.style.left = `${this.left}px`;
     }
+
+    moveStart(){
+        this.setX(147);
+        this.setY(510);
+        this.move();
+    }
 }
 
 export class paddle {
@@ -103,6 +108,11 @@ export class paddle {
     move(){
         this.obj.style.left = `${this.left}px`;
         this.obj.style.top = `${this.top}px`;
+    }
+
+    moveStart(){
+        this.setX(119);
+        this.move();
     }
 }
 
@@ -162,19 +172,23 @@ export class brick {
         return this.bottom;
     }
 
-    onHit(){
-        if(this != undefined){
-            this.hitPoints = this.hitPoints - 1;
-            if(this.hitPoints === 0){
-                this.obj.style.display = "none";
-            }else{
-                this.obj.style.backgroundColor = this.color[this.hitPoints][0];
-                this.obj.style.borderColor = this.color[this.hitPoints][1];
-            }
+    willBreak(){
+        if(this.hitPoints === 1){
+            return true;
+        } else if(this.hitPoints > 1){
+            return false;
         }
-        
-        
-        
+    }
+
+    onHit(){        
+        this.hitPoints = this.hitPoints - 1;
+        this.obj.style.backgroundColor = this.color[this.hitPoints][0];
+        this.obj.style.borderColor = this.color[this.hitPoints][1];
+    }
+
+    onDestroy(){
+        this.hitPoints = this.hitPoints - 1;
+        this.obj.style.display = "none";
     }
 }
 
